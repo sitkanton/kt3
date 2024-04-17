@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+ 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Dropdown Menu</title> 
+    <style> 
+        .menu { 
+            list-style: none; 
+        } 
+ 
+        .submenu { 
+            display: none; 
+        } 
+        
+ 
+        .submenu.active { 
+            display: block; 
+        } 
+        
+    </style> 
+</head> 
+ 
+<body> 
+ 
+    <ul class="menu"> 
+        <li class="parent"> 
+            <p>Меню 1</p> 
+            <ul class="submenu"> 
+                <li class="parent"> 
+                    <p>Подменю 1</p> 
+                    <ul class="submenu"> 
+                        <li>Элемент 1</li> 
+                        <li>Элемент 2</li> 
+                    </ul> 
+                </li> 
+                <li>Элемент 3</li> 
+                <li>Элемент 4</li> 
+            </ul> 
+        </li> 
+        <li class="parent"> 
+            <p>Меню 2</p> 
+            <ul class="submenu"> 
+                <li class="parent"> 
+                    <p>Подменю 1</p> 
+                    <ul class="submenu"> 
+                        <li>Элемент 5</li> 
+                        <li>Элемент 6</li> 
+                    </ul> 
+           
+            </ul> 
+        </li> 
+    </ul> 
+ 
+    <script> 
+        const paragraphs = document.querySelectorAll('.parent p'); 
+ 
+        paragraphs.forEach(paragraph => { 
+            paragraph.addEventListener('click', () => { 
+                const nextUl = paragraph.parentElement.querySelector('ul'); 
+                if (nextUl) { 
+                    nextUl.classList.toggle('active'); 
+                } else { 
+                    alert('Вы можете пройти по ссылке'); 
+                } 
+            }); 
+        }); 
+    </script> 
+</body> 
+ 
+</html>
